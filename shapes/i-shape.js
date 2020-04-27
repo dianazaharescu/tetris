@@ -2,29 +2,21 @@ import {Shape} from './shape.js';
 
 export class I extends Shape {
     constructor(row, column, cells) {
-        super(row, column, cells);
-        this.template = [
-            [1, 0],
-            [1, 0],
-            [1, 0],
-            [1, 0]
-        ]
-        this.color = 'blue';
+        super(row, column, cells, 'blue');
+        this.template = this.getTemplates()[this.templateIndex];
     }
 
-    moveUp() {
-        this.row--;
-    }
+    getTemplates() {
+        const template_1 = [
+            [1],
+            [1],
+            [1],
+            [1]
+        ],
+        template_2 = [
+            [1, 1, 1, 1]
+        ];
 
-    moveDown() {
-        this.row++;
-    }
-
-    moveLeft() {
-        this.column--;
-    }
-
-    moveRight() {
-        this.column++;
+        return [template_1, template_2];
     }
 }
